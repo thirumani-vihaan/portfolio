@@ -12,6 +12,8 @@ type ProjectCardProps = {
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const isContain = project.imageMode === "contain";
+
   return (
     <MagneticWrapper className="h-full rounded-2xl">
       <motion.article
@@ -20,20 +22,26 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         className="group h-full overflow-hidden rounded-2xl border border-blush bg-sand shadow-card"
         data-cursor="clickable"
       >
-        <div className="relative h-48 w-full">
+        <div
+          className={`relative h-48 w-full ${
+            isContain ? "bg-[radial-gradient(circle_at_20%_20%,#2d9cdb55,transparent_40%),linear-gradient(180deg,#243445_0%,#1a1a1a_100%)]" : ""
+          }`}
+        >
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+            className={`transition duration-500 group-hover:opacity-100 ${
+              isContain ? "object-contain p-7 group-hover:scale-105" : "object-cover opacity-90 group-hover:scale-105"
+            }`}
             sizes="(max-width: 768px) 100vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+          <div className={`absolute inset-0 ${isContain ? "bg-gradient-to-t from-black/40 via-transparent to-transparent" : "bg-gradient-to-t from-black/55 via-transparent to-transparent"}`} />
         </div>
 
         <div className="space-y-4 p-6">
           <h3 className="font-display text-xl text-ink">{project.title}</h3>
-          <p className="text-sm leading-6 text-ink/70" data-cursor="text">
+          <p className="line-clamp-3 text-sm leading-6 text-ink/70" data-cursor="text">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">

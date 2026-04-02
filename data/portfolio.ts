@@ -7,6 +7,7 @@ export type Project = {
   linkLabel: string;
   linkHref: string;
   image: string;
+  imageMode?: "cover" | "contain";
 };
 
 export const portfolioData = {
@@ -74,8 +75,8 @@ export const portfolioData = {
       ],
       linkLabel: "GitHub: Smart-Trip-Planner",
       linkHref: "https://github.com/thirumani-vihaan/Smart-Trip-Planner",
-      image:
-        "https://raw.githubusercontent.com/thirumani-vihaan/Smart-Trip-Planner/main/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+      image: "/smart-trip-planner-icon.svg",
+      imageMode: "contain"
     },
     {
       title: "Mind Scribe - Study Logger + Focus Timer + Local Journal App",
@@ -92,8 +93,8 @@ export const portfolioData = {
       ],
       linkLabel: "GitHub: Mind-Scribe",
       linkHref: "https://github.com/thirumani-vihaan/Mind-Scribe",
-      image:
-        "https://raw.githubusercontent.com/thirumani-vihaan/Mind-Scribe/main/assets/images/nest.png"
+      image: "/mind-scribe-icon.svg",
+      imageMode: "contain"
     },
     {
       title: "Chocolate Shopping App",
@@ -107,8 +108,8 @@ export const portfolioData = {
       ],
       linkLabel: "GitHub: shopping-app",
       linkHref: "https://github.com/thirumani-vihaan/shopping-app",
-      image:
-        "https://raw.githubusercontent.com/thirumani-vihaan/shopping-app/main/assets/images/app_icon.png"
+      image: "/chocolate-shopping-icon.svg",
+      imageMode: "contain"
     }
   ] as Project[],
   skills: {
