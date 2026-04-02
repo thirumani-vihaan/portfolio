@@ -7,9 +7,18 @@ export type Project = {
   image: string;
 };
 
+export type Experience = {
+  role: string;
+  org: string;
+  period: string;
+  highlights: string[];
+};
+
 export const portfolioData = {
-  name: "T Varaprasad",
+  name: "T Vihaan",
+  shortName: "Vihaan",
   title: "IT Undergraduate | Flutter Developer | Software Engineering Enthusiast",
+  tagline: "Building focused digital products with thoughtful interaction design.",
   bio: "Second-year Information Technology undergraduate with strong foundations in computer science and hands-on experience building real-world software applications. Motivated to learn across software engineering, product thinking, and program management.",
   contact: {
     email: "arjunthirumani02@gmail.com",
@@ -17,9 +26,28 @@ export const portfolioData = {
     location: "Hyderabad, India"
   },
   socials: {
-    github: "https://github.com/varaprasad-t",
-    linkedin: "https://linkedin.com/in/varaprasad-t"
+    github: "https://github.com/thirumani-vihaan",
+    linkedin: "https://linkedin.com/in/thirumani-vihaan"
   },
+  stats: [
+    { label: "CodeChef Rating", value: "2 Star" },
+    { label: "DSA Problems Solved", value: "500+" },
+    { label: "Primary Focus", value: "Mobile + DSA" }
+  ],
+  achievements: [
+    {
+      title: "2 Star on CodeChef",
+      detail: "Consistent competitive programming participation with steady rating improvements."
+    },
+    {
+      title: "500+ DSA Problems Solved",
+      detail: "Combined problem solving across platforms including LeetCode, CodeChef, and others."
+    },
+    {
+      title: "Strong CS Foundations",
+      detail: "Hands-on understanding of OOPS, DBMS, OS, and practical debugging workflows."
+    }
+  ],
   education: [
     {
       institution: "VNR Vignana Jyothi Institute of Engineering and Technology",
@@ -64,9 +92,32 @@ export const portfolioData = {
         "https://raw.githubusercontent.com/thirumani-vihaan/shopping-app/main/assets/images/app_icon.png"
     }
   ] as Project[],
+  experience: [
+    {
+      role: "Student Developer",
+      org: "Personal & Academic Projects",
+      period: "2024 - Present",
+      highlights: [
+        "Designed and built Flutter apps with offline-first storage patterns and practical state management.",
+        "Integrated AI APIs for itinerary and productivity workflows while optimizing UX for daily usage.",
+        "Used GitHub-based workflows for versioning, issue tracking, and iterative feature releases."
+      ]
+    }
+  ] as Experience[],
+  certifications: [
+    "Foundational DSA and Problem Solving",
+    "Object-Oriented Programming Fundamentals",
+    "DBMS and Operating Systems Coursework"
+  ],
   skills: {
     Languages: ["Dart", "C", "C++", "Java", "Python"],
     Frameworks: ["Flutter", "Firebase", "REST APIs", "JSON", "Hive", "Material Design"],
     "Tools & CS": ["Git", "GitHub", "VS Code", "Android Studio", "DSA", "OOPS", "DBMS", "OS"]
-  }
+  },
+  strengths: [
+    "User-centric feature thinking from ideation to implementation",
+    "Consistent delivery through clean structure and reusable components",
+    "Fast learning cycles and practical debugging habits"
+  ],
+  interests: ["Product Engineering", "Mobile Systems", "Developer Experience", "AI-Assisted Apps"]
 };

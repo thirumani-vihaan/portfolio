@@ -16,7 +16,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <motion.article
         whileHover={{ y: -8 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="group h-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-glass backdrop-blur-xs"
+        className="group h-full overflow-hidden rounded-2xl border border-blush bg-sand shadow-card"
         data-cursor="clickable"
       >
         <div className="relative h-48 w-full">
@@ -24,21 +24,22 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
+            className="object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
             sizes="(max-width: 768px) 100vw, 33vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
         </div>
 
         <div className="space-y-4 p-6">
-          <h3 className="text-xl font-semibold text-offWhite">{project.title}</h3>
-          <p className="text-sm leading-6 text-mutedGrey" data-cursor="text">
+          <h3 className="font-display text-xl text-ink">{project.title}</h3>
+          <p className="text-sm leading-6 text-ink/70" data-cursor="text">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">
             {project.tech.map((item) => (
               <span
                 key={`${project.title}-${item}`}
-                className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-mutedGrey"
+                className="rounded-full border border-blush bg-paper px-3 py-1 text-xs text-ink/75"
               >
                 {item}
               </span>
@@ -49,7 +50,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={project.linkHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-offWhite transition-colors hover:text-steel"
+            className="inline-flex items-center gap-2 text-sm text-ink transition-colors hover:text-coral"
             data-cursor="clickable"
             aria-label={project.linkLabel}
           >

@@ -8,20 +8,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: "#121212",
-        slateSoft: "#1E1E1E",
-        offWhite: "#E0E0E0",
-        mutedGrey: "#A0A0A0",
-        steel: "#455A64"
+        paper: "#1A1A1A",
+        sand: "#262626",
+        ink: "#F5F5F5",
+        coral: "#FFA116",
+        blush: "#3A3A3A"
       },
       boxShadow: {
-        glass: "0 10px 35px rgba(0, 0, 0, 0.35)"
-      },
-      backdropBlur: {
-        xs: "2px"
+        card: "0 1px 0 rgba(255, 255, 255, 0.03), 0 8px 24px rgba(0, 0, 0, 0.35)"
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"]
+        sans: ["-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "sans-serif"],
+        display: ["-apple-system", "BlinkMacSystemFont", '"Segoe UI"', "Roboto", "sans-serif"]
       }
     }
   },
