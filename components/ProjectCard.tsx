@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Project } from "@/data/portfolio";
 import MagneticWrapper from "@/components/MagneticWrapper";
+import TechIcon from "@/components/TechIcon";
 
 type ProjectCardProps = {
   project: Project;
@@ -39,8 +40,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {project.tech.map((item) => (
               <span
                 key={`${project.title}-${item}`}
-                className="rounded-full border border-blush bg-paper px-3 py-1 text-xs text-ink/75"
+                className="inline-flex items-center gap-1.5 rounded-full border border-blush bg-paper px-3 py-1 text-xs text-ink/75"
               >
+                <TechIcon label={item} />
                 {item}
               </span>
             ))}

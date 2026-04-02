@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import MagneticWrapper from "@/components/MagneticWrapper";
 import { portfolioData } from "@/data/portfolio";
 
 const navItems = [
@@ -45,18 +45,31 @@ export default function Navbar() {
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <MagneticWrapper key={item.href} className="rounded-full">
-                <Link
-                  href={item.href}
-                  className={`inline-flex rounded-full px-4 py-2 text-sm transition ${
-                    isActive ? "bg-coral text-[#1a1a1a]" : "text-ink/75 hover:text-coral"
-                  }`}
-                  data-cursor="clickable"
-                  onClick={closeMenu}
-                >
-                  {item.label}
-                </Link>
-              </MagneticWrapper>
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative inline-flex rounded-full px-4 py-2 text-sm text-ink/75 transition hover:text-coral"
+                data-cursor="clickable"
+                onClick={closeMenu}
+              >
+                {isActive && (
+                  <>
+                    <motion.span
+                      layoutId="navbar-liquid-glow"
+                      transition={{ type: "spring", stiffness: 320, damping: 26, mass: 0.72 }}
+                      className="absolute inset-0 -z-10 rounded-full bg-coral/35 blur-md"
+                    />
+                    <motion.span
+                      layoutId="navbar-liquid-core"
+                      initial={{ scale: 0.9 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 340, damping: 24, mass: 0.75 }}
+                      className="absolute inset-0 rounded-full border border-coral/45 bg-gradient-to-r from-[#ffb74d] via-coral to-[#ff8f00]"
+                    />
+                  </>
+                )}
+                <span className={`relative z-10 ${isActive ? "font-medium text-[#1a1a1a]" : ""}`}>{item.label}</span>
+              </Link>
             );
           })}
         </nav>
