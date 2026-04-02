@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import MagneticWrapper from "@/components/MagneticWrapper";
+import TypewriterText from "@/components/TypewriterText";
 import { portfolioData } from "@/data/portfolio";
 
 const fadeUp = {
@@ -18,8 +19,14 @@ export default function HomePage() {
       <motion.section initial="hidden" animate="show" variants={fadeUp} className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
           <p className="text-xs uppercase tracking-[0.25em] text-ink/65">Portfolio 2026</p>
-          <h1 className="mt-4 max-w-2xl font-display text-5xl leading-tight text-ink md:text-6xl">{portfolioData.name}</h1>
-          <p className="mt-5 max-w-2xl text-lg text-ink/75">{portfolioData.tagline}</p>
+          <h1 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-ink sm:text-5xl md:text-6xl">
+            {portfolioData.name}
+          </h1>
+          <p className="mt-5 max-w-2xl text-base text-ink/75 sm:text-lg">
+            <TypewriterText
+              phrases={[portfolioData.tagline, "Mobile apps, problem solving, and practical engineering."]}
+            />
+          </p>
           <p className="mt-4 max-w-2xl leading-7 text-ink/70">{portfolioData.bio}</p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -45,10 +52,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        <aside className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <aside className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Quick Contact</h2>
           <div className="mt-5 space-y-3 text-sm text-ink/75">
-            <a href={`mailto:${portfolioData.contact.email}`} className="flex items-center gap-2 hover:text-coral" data-cursor="clickable">
+            <a href={`mailto:${portfolioData.contact.email}`} className="flex break-all gap-2 hover:text-coral" data-cursor="clickable">
               <Mail size={16} />
               {portfolioData.contact.email}
             </a>
@@ -80,7 +87,7 @@ export default function HomePage() {
         variants={fadeUp}
         className="mt-16"
       >
-        <div className="flex items-end justify-between gap-4">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <h2 className="font-display text-3xl text-ink">Highlights</h2>
           <p className="text-sm text-ink/70">Competitive coding and consistent engineering practice.</p>
         </div>

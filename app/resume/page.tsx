@@ -12,7 +12,7 @@ export default function ResumePage() {
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-ink/65">Snapshot</p>
-            <h1 className="mt-3 font-display text-5xl text-ink">Resume</h1>
+            <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">Resume</h1>
           </div>
           <a
             href={`mailto:${portfolioData.contact.email}?subject=Resume Request - ${portfolioData.name}`}
@@ -26,7 +26,7 @@ export default function ResumePage() {
       </motion.section>
 
       <section className="mt-8 grid gap-6 lg:grid-cols-2">
-        <article className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <article className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Education</h2>
           <div className="mt-4 space-y-4">
             {portfolioData.education.map((item) => (
@@ -39,7 +39,7 @@ export default function ResumePage() {
           </div>
         </article>
 
-        <article className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <article className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Experience</h2>
           <div className="mt-4 space-y-4">
             {portfolioData.experience.map((item) => (
@@ -59,7 +59,7 @@ export default function ResumePage() {
       </section>
 
       <section className="mt-6 grid gap-6 lg:grid-cols-2">
-        <article className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <article className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Skills</h2>
           <div className="mt-4 grid gap-4">
             {Object.entries(portfolioData.skills).map(([category, items]) => (
@@ -77,7 +77,7 @@ export default function ResumePage() {
           </div>
         </article>
 
-        <article className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <article className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Certifications & Coursework</h2>
           <ul className="mt-4 space-y-3 text-sm text-ink/75">
             {portfolioData.certifications.map((item) => (

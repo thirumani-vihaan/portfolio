@@ -10,12 +10,12 @@ export default function AboutPage() {
     <PageShell>
       <motion.section initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
         <p className="text-xs uppercase tracking-[0.25em] text-ink/65">About</p>
-        <h1 className="mt-3 font-display text-5xl text-ink">Who I Am</h1>
+        <h1 className="mt-3 font-display text-4xl text-ink sm:text-5xl">Who I Am</h1>
         <p className="mt-5 max-w-3xl leading-8 text-ink/75">{portfolioData.bio}</p>
       </motion.section>
 
       <section className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <article className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <article className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Strengths</h2>
           <ul className="mt-4 space-y-3 text-sm text-ink/75">
             {portfolioData.strengths.map((strength) => (
@@ -35,10 +35,10 @@ export default function AboutPage() {
           </div>
         </article>
 
-        <aside className="rounded-3xl border border-blush bg-sand p-6 shadow-card">
+        <aside className="rounded-3xl border border-blush bg-sand p-5 shadow-card sm:p-6">
           <h2 className="font-display text-2xl text-ink">Contact</h2>
           <div className="mt-4 space-y-3 text-sm text-ink/75">
-            <a href={`mailto:${portfolioData.contact.email}`} className="block hover:text-coral" data-cursor="clickable">
+            <a href={`mailto:${portfolioData.contact.email}`} className="block break-all hover:text-coral" data-cursor="clickable">
               {portfolioData.contact.email}
             </a>
             <p className="inline-flex items-center gap-2">
