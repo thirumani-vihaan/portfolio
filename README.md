@@ -1,42 +1,41 @@
-# 🚀 Vihaan Thirumani | Flutter Developer & IT Student
+# Vihaan Thirumani
+**Information Technology Undergraduate | VNR VJIET**
 
-Welcome to my portfolio! I am a 2nd-year Information Technology student at VNRVJIET, focused on building high-performance mobile applications and solving complex algorithmic problems.
+A portfolio of my work in mobile application development, competitive programming, and AI integration.
 
-### 🌐 Live at: [vihaanthirumani.me](https://vihaanthirumani.me)
-
----
-
-## 🛠️ Tech Stack
-* **Mobile:** Flutter, Dart, GetX, Hive (Offline-first)
-* **Languages:** C++, Python, Java
-* **Tools:** Firebase, Git, Gemini AI API, Vercel
+### [vihaanthirumani.me](https://vihaanthirumani.me)
 
 ---
 
-## 🌟 Featured Projects
+## Technical Stack
 
-### 📝 Mind Scribe
-An **offline-first** study logger and journal app built with **Flutter and Hive**. 
-* Focuses on data persistence and clean UI.
-* [View Code](https://github.com/thirumani-vihaan/portfolio)
-
-### ✈️ Smart Trip Planner
-An AI-powered itinerary application integrated with **Gemini AI**.
-* Generates custom travel plans based on user preferences.
-* Built using Flutter and REST APIs.
+* **Languages:** C++, Dart, Java, Python
+* **Frameworks:** Flutter (GetX, Hive, Provider)
+* **Backend & Tools:** Firebase, Gemini AI API, Git, Vercel
 
 ---
 
-## 🏆 Competitive Programming
-I enjoy solving problems on platforms like LeetCode and Codeforces, primarily using **C++**. 
-* Focus: Data Structures (Maps, Hashing) and Optimization.
+## Featured Projects
+
+### Smart Trip Planner
+An AI-driven itinerary application built with **Flutter** and **Gemini AI**. Generates structured travel plans based on user input and API integration.
+
+### Mind Scribe
+An offline-first study logger and journaling application. Developed using **Flutter** and **Hive** for local data persistence and high-performance state management.
+
+### Chocolate Shopping App
+A minimalist UI/UX project focused on smooth navigation and clean mobile design principles.
 
 ---
 
-## 📬 Get In Touch
+## Competitive Programming
+Active solver on platforms including LeetCode and Codeforces.
+* **Primary Language:** C++
+* **Focus:** Data Structures, Algorithms, and Complexity Optimization.
+
+---
+
+## Contact
 * **LinkedIn:** [linkedin.com/in/vihaanthirumani](https://linkedin.com/in/vihaanthirumani)
-* **Email:** [Your Email Here]
+* **GitHub:** [github.com/thirumani-vihaan](https://github.com/thirumani-vihaan)
 * **Portfolio:** [vihaanthirumani.me](https://vihaanthirumani.me)
-
----
-*Built with ❤️ using Next.js/React & deployed on Vercel.*
