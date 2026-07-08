@@ -1,52 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Crosshair } from "lucide-react";
+import { Download } from "lucide-react";
 import PageShell from "@/components/PageShell";
 import TechIcon from "@/components/TechIcon";
 import { portfolioData } from "@/data/portfolio";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
 export default function ResumePage() {
   return (
     <PageShell>
       {/* ── Header ───────────────────────────── */}
-      <motion.section initial="hidden" animate="show" variants={fadeUp} className="hud-panel p-6 mb-10">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="font-mono text-[10px] tracking-widest text-cyan">
-              // DIR: ROOT/LOGS/RESUME
-            </p>
-            <h1 className="mt-2 font-display text-3xl font-bold uppercase tracking-widest text-ink sm:text-4xl">
-              LOG.RESUME
-            </h1>
-          </div>
+      <motion.section initial="hidden" animate="show" variants={fadeUp} className="mc-block p-8 mb-10 max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-center justify-between gap-6 border-b-4 border-obsidian pb-6">
+          <h1 className="pixel-text text-5xl text-diamond-glow drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]">
+            Character Sheet
+          </h1>
           <a
             href={`mailto:${portfolioData.contact.email}?subject=Resume Request - ${portfolioData.name}`}
-            className="group relative flex items-center gap-2 border border-cyan bg-cyan/10 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-cyan transition-colors hover:bg-cyan/20"
-            data-cursor="clickable"
+            className="group flex items-center gap-2 bg-stone hover:bg-muted text-ink px-4 py-2 pixel-text text-xl shadow-[inset_-3px_-3px_0_rgba(0,0,0,0.3),inset_3px_3px_0_rgba(255,255,255,0.2)] transition-all active:scale-95"
           >
-            [ EXTRACT_PDF ]
-            <Download size={14} className="transition-transform group-hover:translate-y-0.5" />
+            Download PDF
+            <Download size={18} />
           </a>
         </div>
-
-        <div className="mt-6 border-t border-steel/50 pt-4 font-mono text-xs leading-relaxed text-muted">
-          {">"} INITIALIZING USER DATA... <br/>
-          {">"} {portfolioData.bio}
-        </div>
+        <p className="mt-6 readable-text text-lg text-ink/90 leading-relaxed">
+          {portfolioData.bio}
+        </p>
       </motion.section>
 
-      <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <div className="grid gap-10 lg:grid-cols-[1fr_1fr] max-w-5xl mx-auto">
         <div className="space-y-10">
           {/* ── Education ─────────────────────────── */}
           <motion.section
@@ -54,23 +46,21 @@ export default function ResumePage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={stagger}
+            className="mc-block p-6"
           >
-            <div className="mb-4 flex items-center gap-2 border-b border-steel/50 pb-2">
-              <Crosshair size={12} className="text-cyan" />
-              <span className="font-mono text-[10px] tracking-widest text-cyan">DAT.TRAINING</span>
-            </div>
-            <div className="space-y-4">
+            <h2 className="pixel-text text-3xl text-emerald-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
+              Training Grounds
+            </h2>
+            <div className="space-y-6">
               {portfolioData.education.map((item) => (
-                <motion.div
-                  key={item.institution}
-                  variants={fadeUp}
-                  className="group relative border-l-2 border-steel pl-4 transition-colors hover:border-cyan"
-                >
-                  <h3 className="font-display text-lg font-bold uppercase text-ink group-hover:text-cyan transition-colors">
+                <motion.div key={item.institution} variants={fadeUp} className="bg-obsidian p-4 border-2 border-stone">
+                  <h3 className="pixel-text text-2xl text-ink">
                     {item.institution}
                   </h3>
-                  <p className="mt-1 font-sans text-sm text-muted">{item.detail}</p>
-                  <p className="mt-2 font-mono text-[10px] text-orange-alert">TIME // {item.period}</p>
+                  <p className="mt-2 readable-text text-sm text-ink/80">{item.detail}</p>
+                  <p className="mt-3 inline-block bg-stone/50 px-2 py-1 pixel-text text-sm text-diamond-glow">
+                    {item.period}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -82,24 +72,24 @@ export default function ResumePage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={stagger}
+            className="mc-block p-6"
           >
-            <div className="mb-4 flex items-center gap-2 border-b border-steel/50 pb-2">
-              <Crosshair size={12} className="text-orange-alert" />
-              <span className="font-mono text-[10px] tracking-widest text-orange-alert">SYS.CAPABILITIES</span>
-            </div>
+            <h2 className="pixel-text text-3xl text-redstone-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
+              Inventory & Skills
+            </h2>
             <div className="grid gap-6">
               {Object.entries(portfolioData.skills).map(([category, items]) => (
-                <motion.div key={category} variants={fadeUp}>
-                  <h3 className="font-mono text-[10px] tracking-widest text-muted">
-                    {category.toUpperCase()}
+                <motion.div key={category} variants={fadeUp} className="bg-obsidian p-4 border-2 border-stone">
+                  <h3 className="pixel-text text-xl text-muted mb-3">
+                    {category}
                   </h3>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2">
                     {items.map((skill) => (
                       <span
                         key={`${category}-${skill}`}
-                        className="inline-flex items-center gap-1.5 border border-steel bg-void px-2 py-1 font-mono text-[10px] uppercase text-muted transition-colors hover:border-cyan hover:text-ink"
+                        className="inline-flex items-center gap-1.5 bg-deepslate border border-stone px-2 py-1 pixel-text text-sm text-ink"
                       >
-                        <TechIcon label={skill} />
+                        <TechIcon label={skill} size={14} />
                         {skill}
                       </span>
                     ))}
@@ -116,42 +106,38 @@ export default function ResumePage() {
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
           variants={stagger}
+          className="mc-block p-6"
         >
-          <div className="mb-4 flex items-center gap-2 border-b border-steel/50 pb-2">
-            <Crosshair size={12} className="text-cyan" />
-            <span className="font-mono text-[10px] tracking-widest text-cyan">LOG.DEPLOYMENTS</span>
-          </div>
-          <div className="space-y-8">
+          <h2 className="pixel-text text-3xl text-diamond-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
+            Quest History
+          </h2>
+          <div className="space-y-6">
             {portfolioData.projects.map((item) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                className="group relative border-l-2 border-steel pl-4 transition-colors hover:border-cyan"
-              >
-                <div className="flex flex-wrap items-end gap-3">
-                  <h3 className="font-display text-lg font-bold uppercase text-ink group-hover:text-cyan transition-colors">
+              <motion.div key={item.title} variants={fadeUp} className="bg-obsidian p-5 border-2 border-stone">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-stone pb-3">
+                  <h3 className="pixel-text text-2xl text-ink">
                     {item.title}
                   </h3>
-                  <span className="mb-1 font-mono text-[10px] text-orange-alert">
-                    TIME // {item.period}
+                  <span className="bg-stone/50 px-2 py-1 pixel-text text-sm text-emerald-glow">
+                    {item.period}
                   </span>
                 </div>
 
-                <div className="mt-3 flex flex-wrap gap-1.5">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {item.tech.map((tech) => (
                     <span
                       key={`${item.title}-${tech}`}
-                      className="inline-flex items-center gap-1.5 border border-steel/50 bg-surface px-1.5 py-0.5 font-mono text-[9px] uppercase text-muted"
+                      className="bg-deepslate border border-stone px-2 py-1 pixel-text text-xs text-muted"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                <ul className="mt-4 space-y-2 font-mono text-[11px] leading-relaxed text-muted">
+                <ul className="mt-5 space-y-3 readable-text text-sm text-ink/80">
                   {item.highlights.map((line) => (
-                    <li key={line} className="flex gap-2">
-                      <span className="text-cyan">{">"}</span>
+                    <li key={line} className="flex gap-3">
+                      <span className="text-diamond-glow mt-1">♦</span>
                       <span>{line}</span>
                     </li>
                   ))}

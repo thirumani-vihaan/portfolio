@@ -4,13 +4,12 @@
 
 /* ── Base ─────────────────────────────────── */
 :root {
-  --void: #0B0F19;
-  --surface: #111827;
-  --ink: #F1F5F9;
-  --muted: #94A3B8;
-  --cyan: #00F0FF;
-  --orange: #FF462D;
-  --steel: #1E293B;
+  --obsidian: #1a1c23;
+  --deepslate: #2d333b;
+  --stone: #444c56;
+  --ink: #f0f6fc;
+  --muted: #8b949e;
+  --diamond: #55FFFF;
 }
 
 * {
@@ -26,167 +25,106 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: var(--void);
+  background: var(--obsidian);
   color: var(--ink);
 }
 
 ::selection {
-  background: rgba(0, 240, 255, 0.3);
+  background: rgba(85, 255, 255, 0.3);
   color: #fff;
 }
 
 a,
 button {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s ease-in-out;
 }
 
-/* ── HUD Grid Background ─────────────────── */
-.bg-hud-grid {
-  background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-/* ── HUD Panel (Angled Corners) ──────────── */
-.hud-panel {
-  background: rgba(17, 24, 39, 0.7);
-  backdrop-filter: blur(12px);
+/* ── Minecraft RTX Block Container ───────── */
+.mc-block {
+  background: rgba(45, 51, 59, 0.7); /* Deepslate base with transparency */
+  backdrop-filter: blur(12px);       /* The "RTX / Shaders" glass effect */
   -webkit-backdrop-filter: blur(12px);
-  position: relative;
-  /* Cut bottom-right and top-left corners */
-  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-  border: 1px solid var(--steel);
+  border: 2px solid var(--obsidian);
+  border-radius: 2px;
+  /* 3D chunky inner shadow to look like a Minecraft block edge */
+  box-shadow: inset -4px -4px 0px 0px rgba(0, 0, 0, 0.4), 
+              inset 4px 4px 0px 0px rgba(255, 255, 255, 0.1), 
+              0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
 }
 
-/* Pseudo-element for inner glow border since clip-path cuts off normal borders weirdly */
-.hud-panel::before {
-  content: "";
+.mc-block:hover {
+  border-color: var(--stone);
+  box-shadow: inset -4px -4px 0px 0px rgba(0, 0, 0, 0.5), 
+              inset 4px 4px 0px 0px rgba(85, 255, 255, 0.3), 
+              0 10px 40px rgba(85, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ── Floating Dust Particles (Background) ── */
+.particle-container {
   position: absolute;
   inset: 0;
-  background: var(--steel);
-  z-index: -1;
-  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  overflow: hidden;
+  pointer-events: none;
 }
 
-.hud-panel::after {
-  content: "";
+.particle {
   position: absolute;
-  inset: 1px;
-  background: rgba(17, 24, 39, 0.85);
-  z-index: -1;
-  clip-path: polygon(0 12px, 12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
-}
-
-.hud-panel:hover::before {
-  background: var(--cyan);
-}
-
-/* ── HUD Accent Lines ────────────────────── */
-.hud-accent-line {
-  position: relative;
-}
-.hud-accent-line::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
-}
-
-/* ── Glitch Text Effect ──────────────────── */
-.glitch-text {
-  position: relative;
-}
-
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--void);
-}
-
-.glitch-text::before {
-  left: 2px;
-  text-shadow: -1px 0 var(--orange);
-  clip-path: inset(24% 0 58% 0);
-  animation: glitch-anim 3s infinite linear alternate-reverse;
-  display: none;
-}
-
-.glitch-text::after {
-  left: -2px;
-  text-shadow: -1px 0 var(--cyan);
-  clip-path: inset(54% 0 7% 0);
-  animation: glitch-anim 2.5s infinite linear alternate-reverse;
-  display: none;
-}
-
-.glitch-hover:hover .glitch-text::before,
-.glitch-hover:hover .glitch-text::after {
-  display: block;
-}
-
-/* ── Targeting Brackets ──────────────────── */
-.targeting-brackets {
-  position: relative;
-}
-
-.targeting-brackets::before,
-.targeting-brackets::after {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
+  width: 6px;
+  height: 6px;
+  background: rgba(85, 255, 255, 0.3); /* Diamond colored dust */
+  box-shadow: 0 0 10px rgba(85, 255, 255, 0.5);
+  border-radius: 1px;
+  animation: float-particle linear infinite;
   opacity: 0;
 }
 
-.targeting-brackets::before {
-  top: -2px;
-  left: -2px;
-  border-top-color: var(--cyan);
-  border-left-color: var(--cyan);
+@keyframes float-particle {
+  0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-20vh) translateX(100px) rotate(360deg); opacity: 0; }
 }
 
-.targeting-brackets::after {
-  bottom: -2px;
-  right: -2px;
-  border-bottom-color: var(--cyan);
-  border-right-color: var(--cyan);
+/* ── Typography & Links ──────────────────── */
+.pixel-text {
+  font-family: var(--font-vt323), monospace;
+  text-transform: uppercase;
 }
 
-.group:hover .targeting-brackets::before {
-  top: 10px;
-  left: 10px;
-  opacity: 1;
+/* Make body text extremely readable */
+.readable-text {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  line-height: 1.7;
 }
 
-.group:hover .targeting-brackets::after {
-  bottom: 10px;
-  right: 10px;
-  opacity: 1;
+.diamond-link {
+  color: var(--diamond);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+}
+
+.diamond-link:hover {
+  text-shadow: 0 0 10px rgba(85, 255, 255, 0.5);
+  border-bottom-color: var(--diamond);
 }
 
 /* ── Scrollbar ───────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 12px; /* Chunky scrollbar */
 }
 ::-webkit-scrollbar-track {
-  background: var(--void);
+  background: var(--obsidian);
+  border-left: 2px solid var(--stone);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--steel);
-  border-radius: 0;
+  background: var(--deepslate);
+  border: 2px solid var(--stone);
+  box-shadow: inset -2px -2px 0px 0px rgba(0, 0, 0, 0.4), 
+              inset 2px 2px 0px 0px rgba(255, 255, 255, 0.1);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--cyan);
+  background: var(--stone);
 }

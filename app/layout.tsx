@@ -1,49 +1,62 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Rajdhani, JetBrains_Mono } from "next/font/google";
+import { Inter, VT323 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SiteFooter from "@/components/SiteFooter";
 
-const rajdhani = Rajdhani({
-  weight: ["400", "500", "600", "700"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-rajdhani",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const jetbrains = JetBrains_Mono({
-  weight: ["400", "500", "700"],
+const vt323 = VT323({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-vt323",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "T Vihaan | SYS.PROFILE",
+  title: "T Vihaan | Portfolio",
   description:
-    "System Profile: T Vihaan — IT undergraduate building backend systems and high-performance mobile applications.",
+    "Portfolio of T Vihaan — IT undergraduate building backend systems and high-performance mobile applications.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${rajdhani.variable} ${jetbrains.variable}`}>
-      <body className="bg-void text-ink antialiased font-sans">
-        <div className="relative min-h-screen bg-void">
-          {/* Blueprint Grid Background */}
-          <div className="pointer-events-none fixed inset-0 z-0 bg-hud-grid opacity-30 mix-blend-screen" aria-hidden="true" />
-          
-          {/* Scanline Overlay */}
-          <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden opacity-[0.03] mix-blend-overlay" aria-hidden="true">
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]" />
-            <div className="absolute inset-0 h-full w-full animate-scanline bg-gradient-to-b from-transparent via-cyan-glow/10 to-transparent" />
+    <html lang="en" className={`${inter.variable} ${vt323.variable}`}>
+      <body className="bg-obsidian text-ink antialiased font-sans overflow-x-hidden">
+        <div className="relative min-h-screen">
+          {/* RTX Shaders / Glass Background Effects */}
+          <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+            {/* Ambient Diamond Glow */}
+            <div className="absolute top-[-10%] left-[-10%] h-[500px] w-[500px] rounded-full bg-diamond-base/10 blur-[120px]" />
+            <div className="absolute bottom-[-10%] right-[-10%] h-[600px] w-[600px] rounded-full bg-emerald-base/10 blur-[150px]" />
+            
+            {/* Floating Dust Particles (Nether/Ender style but blue/white) */}
+            <div className="particle-container">
+              {[...Array(20)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="particle"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 10}s`,
+                    animationDuration: `${10 + Math.random() * 15}s`
+                  }}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="relative z-10">
             <Navbar />
-            {children}
+            <main>{children}</main>
             <SiteFooter />
           </div>
         </div>
