@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#1a1a1a"/>
+  <!-- Central person -->
+  <circle cx="60" cy="38" r="8" fill="url(#g)"/>
+  <path d="M48 56a12 12 0 0 1 24 0v4H48v-4z" fill="url(#g)"/>
+  <!-- Left person -->
+  <circle cx="30" cy="58" r="6" fill="url(#g)" opacity="0.7"/>
+  <path d="M22 70a8 8 0 0 1 16 0v3H22v-3z" fill="url(#g)" opacity="0.7"/>
+  <!-- Right person -->
+  <circle cx="90" cy="58" r="6" fill="url(#g)" opacity="0.7"/>
+  <path d="M82 70a8 8 0 0 1 16 0v3H82v-3z" fill="url(#g)" opacity="0.7"/>
+  <!-- Connections -->
+  <line x1="48" y1="50" x2="36" y2="58" stroke="url(#g)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="72" y1="50" x2="84" y2="58" stroke="url(#g)" stroke-width="1.5" opacity="0.5"/>
+  <!-- Impact/forge spark -->
+  <path d="M54 80l6-12 6 12" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M57 80l3-6 3 6" fill="url(#g)" opacity="0.4"/>
+  <!-- Bottom arc -->
+  <path d="M30 90 Q60 105 90 90" stroke="url(#g)" stroke-width="1.5" fill="none" opacity="0.35"/>
+</svg>
