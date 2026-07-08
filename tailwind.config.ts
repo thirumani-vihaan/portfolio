@@ -8,34 +8,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#1A1A1A",
-        sand: "#262626",
-        ink: "#F5F5F5",
-        coral: "#FFA116",
-        blush: "#3A3A3A",
-      },
-      boxShadow: {
-        card: "0 0 0 1px rgba(255, 255, 255, 0.03), 0 8px 32px rgba(0, 0, 0, 0.4)",
-        "card-hover":
-          "0 0 0 1px rgba(255, 161, 22, 0.2), 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 161, 22, 0.06)",
-        glow: "0 0 20px rgba(255, 161, 22, 0.15), 0 0 60px rgba(255, 161, 22, 0.05)",
+        void: "#0B0F19",       // Deep background
+        surface: "#111827",    // Panel background
+        ink: "#F1F5F9",        // Text
+        muted: "#94A3B8",      // Muted text
+        cyan: {
+          glow: "#00F0FF",
+          dim: "rgba(0, 240, 255, 0.15)",
+        },
+        orange: {
+          alert: "#FF462D",
+          dim: "rgba(255, 70, 45, 0.15)",
+        },
+        steel: "#1E293B",      // Borders
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
+        display: ["var(--font-rajdhani)", "sans-serif"],
+        mono: ["var(--font-jetbrains)", "monospace"],
+        sans: ["var(--font-rajdhani)", "sans-serif"],
       },
       animation: {
-        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
-        shimmer: "shimmer 2.5s ease-in-out infinite",
+        "glitch-anim": "glitch-anim 0.25s linear infinite alternate-reverse",
+        "scanline": "scanline 8s linear infinite",
+        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
-        "glow-pulse": {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
+        "glitch-anim": {
+          "0%": { clipPath: "inset(20% 0 80% 0)" },
+          "20%": { clipPath: "inset(60% 0 10% 0)" },
+          "40%": { clipPath: "inset(40% 0 50% 0)" },
+          "60%": { clipPath: "inset(80% 0 5% 0)" },
+          "80%": { clipPath: "inset(10% 0 70% 0)" },
+          "100%": { clipPath: "inset(30% 0 50% 0)" },
         },
-        shimmer: {
-          "0%": { transform: "translateX(-100%)" },
-          "100%": { transform: "translateX(100%)" },
+        "scanline": {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(100vh)" },
         },
       },
     },

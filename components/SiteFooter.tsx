@@ -1,60 +1,60 @@
+"use client";
+
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, TerminalSquare } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 
 export default function SiteFooter() {
   return (
-    <footer className="relative bg-paper">
-      {/* Gradient divider */}
-      <div className="gradient-divider" />
-
-      <div className="mx-auto flex max-w-6xl flex-col gap-5 px-6 py-10 text-sm text-ink/60 md:flex-row md:items-center md:justify-between md:px-10">
-        <div>
-          <p className="font-display text-base font-semibold text-ink/75">
-            {portfolioData.name}
-          </p>
-          <p className="mt-1 text-xs text-ink/45">
-            © {new Date().getFullYear()} — Built with Next.js
+    <footer className="mt-20 border-t border-steel bg-surface/50 font-mono text-xs text-muted">
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8 md:flex-row md:items-start md:justify-between md:px-10">
+        
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-cyan">
+            <TerminalSquare size={16} />
+            <span className="font-bold tracking-widest">SYSTEM.LOG</span>
+          </div>
+          <p className="text-[10px] text-steel">
+            > USER: {portfolioData.name.toUpperCase()}
+            <br />
+            > ORG: VNR VJIET_
+            <br />
+            > UPTIME: {new Date().getFullYear()} CYCLES
           </p>
         </div>
 
-        <div className="flex items-center gap-5">
-          <a
-            href={`mailto:${portfolioData.contact.email}`}
-            data-cursor="clickable"
-            className="rounded-lg p-2 text-ink/45 transition-colors hover:bg-sand hover:text-coral"
-            aria-label="Email"
-          >
-            <Mail size={17} />
-          </a>
-          <a
-            href={portfolioData.socials.github}
-            target="_blank"
-            rel="noreferrer"
-            data-cursor="clickable"
-            className="rounded-lg p-2 text-ink/45 transition-colors hover:bg-sand hover:text-coral"
-            aria-label="GitHub"
-          >
-            <Github size={17} />
-          </a>
-          <a
-            href={portfolioData.socials.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            data-cursor="clickable"
-            className="rounded-lg p-2 text-ink/45 transition-colors hover:bg-sand hover:text-coral"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={17} />
-          </a>
-          <Link
-            href="/resume"
-            className="rounded-xl border border-blush bg-sand px-4 py-2 text-xs font-medium text-ink/65 transition-all hover:border-coral hover:text-coral"
-            data-cursor="clickable"
-          >
-            Resume
-          </Link>
+        <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
+          <div className="space-y-2">
+            <span className="text-[10px] font-bold text-steel">COMM.LINK</span>
+            <div className="flex gap-4 text-muted">
+              <a href={`mailto:${portfolioData.contact.email}`} className="hover:text-cyan transition-colors" aria-label="Email">
+                <Mail size={16} />
+              </a>
+              <a href={portfolioData.socials.github} target="_blank" rel="noreferrer" className="hover:text-cyan transition-colors" aria-label="GitHub">
+                <Github size={16} />
+              </a>
+              <a href={portfolioData.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan transition-colors" aria-label="LinkedIn">
+                <Linkedin size={16} />
+              </a>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <span className="text-[10px] font-bold text-steel">ACTIONS</span>
+            <div className="flex flex-col items-start gap-1">
+              <Link href="/resume" className="hover:text-cyan transition-colors">
+                [ EXTRACT_RESUME ]
+              </Link>
+            </div>
+          </div>
         </div>
+
+      </div>
+      
+      {/* Decorative bottom bar */}
+      <div className="flex h-1 w-full bg-void">
+        <div className="w-1/3 bg-cyan" />
+        <div className="w-1/12 bg-orange-alert" />
       </div>
     </footer>
   );

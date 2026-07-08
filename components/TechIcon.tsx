@@ -79,64 +79,7 @@ function pickIcon(label: string): LucideIcon {
   if (value.includes("object") || value.includes("oop")) return Settings2;
   if (value.includes("dbms")) return Database;
   if (value.includes("operating")) return Terminal;
-  // State / Notification / Animation
-  if (value.includes("state")) return Layers3;
-  if (value.includes("notification")) return Zap;
-  if (value.includes("animation")) return Palette;
-  if (value.includes("security") || value.includes("abac")) return Shield;
   return Code2;
-}
-
-function pickTone(label: string) {
-  const value = label.toLowerCase();
-  // Languages
-  if (value.includes("kotlin")) return "bg-purple-500/20 text-purple-400";
-  if (value.includes("go") && !value.includes("google")) return "bg-cyan-500/20 text-cyan-400";
-  if (value.includes("c++") || value === "c") return "bg-blue-500/20 text-blue-400";
-  if (value.includes("java") && !value.includes("javascript")) return "bg-orange-500/20 text-orange-400";
-  if (value.includes("dart")) return "bg-sky-500/20 text-sky-400";
-  if (value.includes("sql") && !value.includes("nosql") && !value.includes("postgre")) return "bg-amber-500/20 text-amber-400";
-  if (value.includes("python")) return "bg-yellow-500/20 text-yellow-400";
-  // Backend & Systems
-  if (value.includes("spring")) return "bg-green-500/20 text-green-400";
-  if (value.includes("websocket")) return "bg-violet-500/20 text-violet-400";
-  if (value.includes("postgre")) return "bg-blue-600/20 text-blue-400";
-  if (value.includes("redis")) return "bg-red-500/20 text-red-400";
-  if (value.includes("docker")) return "bg-sky-600/20 text-sky-400";
-  if (value.includes("junit") || value.includes("mockito")) return "bg-emerald-500/20 text-emerald-400";
-  if (value.includes("rest") || value.includes("json") || value.includes("api")) return "bg-indigo-500/20 text-indigo-400";
-  // Mobile & Frontend
-  if (value.includes("flutter")) return "bg-sky-500/20 text-sky-400";
-  if (value.includes("jetpack") || value.includes("compose")) return "bg-green-500/20 text-green-400";
-  if (value.includes("getx")) return "bg-fuchsia-500/20 text-fuchsia-400";
-  if (value.includes("material")) return "bg-rose-500/20 text-rose-400";
-  if (value.includes("hive")) return "bg-yellow-500/20 text-yellow-400";
-  // Cloud & Infra
-  if (value.includes("firebase") || value.includes("firestore")) return "bg-amber-500/20 text-amber-400";
-  if (value.includes("cloud")) return "bg-blue-500/20 text-blue-400";
-  if (value.includes("gemini") || value.includes("ai")) return "bg-violet-500/20 text-violet-400";
-  if (value.includes("openstreetmap") || value.includes("map")) return "bg-emerald-500/20 text-emerald-400";
-  // Tools
-  if (value.includes("git")) return "bg-orange-500/20 text-orange-400";
-  if (value.includes("linux") || value.includes("shell")) return "bg-slate-500/20 text-slate-300";
-  if (value.includes("postman")) return "bg-orange-500/20 text-orange-400";
-  if (value.includes("intellij")) return "bg-rose-500/20 text-rose-400";
-  if (value.includes("vs code")) return "bg-blue-500/20 text-blue-300";
-  if (value.includes("android")) return "bg-lime-500/20 text-lime-400";
-  // CS Fundamentals
-  if (value.includes("system design")) return "bg-cyan-500/20 text-cyan-400";
-  if (value.includes("concurrency")) return "bg-amber-500/20 text-amber-400";
-  if (value.includes("low-level") || value.includes("lld")) return "bg-purple-500/20 text-purple-400";
-  if (value.includes("design pattern")) return "bg-violet-500/20 text-violet-400";
-  if (value.includes("dsa") || value.includes("algorithm") || value.includes("data structure")) return "bg-red-500/20 text-red-400";
-  if (value.includes("object") || value.includes("oop")) return "bg-teal-500/20 text-teal-400";
-  if (value.includes("dbms")) return "bg-teal-500/20 text-teal-400";
-  if (value.includes("operating")) return "bg-slate-500/20 text-slate-300";
-  // Misc
-  if (value.includes("state")) return "bg-fuchsia-500/20 text-fuchsia-400";
-  if (value.includes("notification")) return "bg-amber-500/20 text-amber-400";
-  if (value.includes("animation")) return "bg-pink-500/20 text-pink-400";
-  return "bg-coral/20 text-coral";
 }
 
 export default function TechIcon({
@@ -147,12 +90,10 @@ export default function TechIcon({
   const Icon = pickIcon(label);
   return (
     <span
-      className={`inline-flex h-4 w-4 items-center justify-center rounded-full ${pickTone(
-        label
-      )} ${className}`}
+      className={`inline-flex items-center justify-center text-muted group-hover:text-cyan transition-colors ${className}`}
       aria-hidden="true"
     >
-      <Icon size={size - 2} />
+      <Icon size={size} />
     </span>
   );
 }
