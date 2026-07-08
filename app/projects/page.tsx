@@ -17,10 +17,10 @@ export default function ProjectsPage() {
         initial="hidden"
         animate="show"
         variants={fadeUp}
-        className="mc-block mb-10 p-8 max-w-4xl mx-auto text-center"
+        className="obsidian-glass mb-10 p-8 max-w-4xl mx-auto text-center"
       >
-        <h1 className="pixel-text text-5xl text-diamond-glow drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]">
-          Completed Quests
+        <h1 className="pixel-text text-5xl text-diamond-glow">
+          Projects
         </h1>
         <p className="mt-4 readable-text text-lg text-ink/90 leading-relaxed">
           A showcase of backend systems, cross-platform applications, and AI integrations.

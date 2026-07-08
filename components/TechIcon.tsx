@@ -84,13 +84,13 @@ function pickIcon(label: string): LucideIcon {
 
 export default function TechIcon({
   label,
-  size = 12,
+  size = 14,
   className = "",
 }: TechIconProps) {
   const Icon = pickIcon(label);
   return (
     <span
-      className={`inline-flex items-center justify-center text-muted group-hover:text-cyan transition-colors ${className}`}
+      className={`inline-flex items-center justify-center text-muted group-hover:text-diamond-glow transition-colors ${className}`}
       aria-hidden="true"
     >
       <Icon size={size} />

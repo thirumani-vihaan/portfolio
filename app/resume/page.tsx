@@ -20,17 +20,17 @@ export default function ResumePage() {
   return (
     <PageShell>
       {/* ── Header ───────────────────────────── */}
-      <motion.section initial="hidden" animate="show" variants={fadeUp} className="mc-block p-8 mb-10 max-w-5xl mx-auto">
-        <div className="flex flex-wrap items-center justify-between gap-6 border-b-4 border-obsidian pb-6">
-          <h1 className="pixel-text text-5xl text-diamond-glow drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]">
-            Character Sheet
+      <motion.section initial="hidden" animate="show" variants={fadeUp} className="obsidian-glass p-8 mb-10 max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-center justify-between gap-6 border-b border-white/5 pb-6">
+          <h1 className="pixel-text text-5xl text-diamond-glow">
+            Resume
           </h1>
           <a
             href={`mailto:${portfolioData.contact.email}?subject=Resume Request - ${portfolioData.name}`}
-            className="group flex items-center gap-2 bg-stone hover:bg-muted text-ink px-4 py-2 pixel-text text-xl shadow-[inset_-3px_-3px_0_rgba(0,0,0,0.3),inset_3px_3px_0_rgba(255,255,255,0.2)] transition-all active:scale-95"
+            className="group flex items-center gap-2 bg-white/5 hover:bg-diamond-glow/20 border border-white/10 text-ink px-5 py-2.5 rounded-xl readable-text text-sm font-medium transition-all"
           >
-            Download PDF
-            <Download size={18} />
+            Request PDF
+            <Download size={16} />
           </a>
         </div>
         <p className="mt-6 readable-text text-lg text-ink/90 leading-relaxed">
@@ -46,19 +46,19 @@ export default function ResumePage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={stagger}
-            className="mc-block p-6"
+            className="obsidian-glass p-6"
           >
-            <h2 className="pixel-text text-3xl text-emerald-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
-              Training Grounds
+            <h2 className="readable-text text-sm font-medium uppercase tracking-widest text-emerald-glow mb-6">
+              Education
             </h2>
             <div className="space-y-6">
               {portfolioData.education.map((item) => (
-                <motion.div key={item.institution} variants={fadeUp} className="bg-obsidian p-4 border-2 border-stone">
-                  <h3 className="pixel-text text-2xl text-ink">
+                <motion.div key={item.institution} variants={fadeUp} className="bg-white/5 p-5 rounded-xl border border-white/5">
+                  <h3 className="readable-text text-lg font-bold text-ink">
                     {item.institution}
                   </h3>
-                  <p className="mt-2 readable-text text-sm text-ink/80">{item.detail}</p>
-                  <p className="mt-3 inline-block bg-stone/50 px-2 py-1 pixel-text text-sm text-diamond-glow">
+                  <p className="mt-2 readable-text text-sm text-muted">{item.detail}</p>
+                  <p className="mt-3 inline-block bg-emerald-glow/10 px-3 py-1 rounded-md readable-text text-xs font-medium text-emerald-glow">
                     {item.period}
                   </p>
                 </motion.div>
@@ -72,22 +72,22 @@ export default function ResumePage() {
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={stagger}
-            className="mc-block p-6"
+            className="obsidian-glass p-6"
           >
-            <h2 className="pixel-text text-3xl text-redstone-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
-              Inventory & Skills
+            <h2 className="readable-text text-sm font-medium uppercase tracking-widest text-diamond-glow mb-6">
+              Skills
             </h2>
             <div className="grid gap-6">
               {Object.entries(portfolioData.skills).map(([category, items]) => (
-                <motion.div key={category} variants={fadeUp} className="bg-obsidian p-4 border-2 border-stone">
-                  <h3 className="pixel-text text-xl text-muted mb-3">
+                <motion.div key={category} variants={fadeUp} className="bg-white/5 p-5 rounded-xl border border-white/5">
+                  <h3 className="readable-text text-xs uppercase tracking-widest text-muted mb-4 font-medium">
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {items.map((skill) => (
                       <span
                         key={`${category}-${skill}`}
-                        className="inline-flex items-center gap-1.5 bg-deepslate border border-stone px-2 py-1 pixel-text text-sm text-ink"
+                        className="inline-flex items-center gap-1.5 bg-obsidian border border-white/10 rounded-lg px-3 py-1.5 readable-text text-xs font-medium text-ink/90"
                       >
                         <TechIcon label={skill} size={14} />
                         {skill}
@@ -106,19 +106,19 @@ export default function ResumePage() {
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
           variants={stagger}
-          className="mc-block p-6"
+          className="obsidian-glass p-6"
         >
-          <h2 className="pixel-text text-3xl text-diamond-glow mb-6 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
-            Quest History
+          <h2 className="readable-text text-sm font-medium uppercase tracking-widest text-diamond-glow mb-6">
+            Experience & Projects
           </h2>
           <div className="space-y-6">
             {portfolioData.projects.map((item) => (
-              <motion.div key={item.title} variants={fadeUp} className="bg-obsidian p-5 border-2 border-stone">
-                <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-stone pb-3">
-                  <h3 className="pixel-text text-2xl text-ink">
+              <motion.div key={item.title} variants={fadeUp} className="bg-white/5 p-5 rounded-xl border border-white/5">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/5 pb-4">
+                  <h3 className="readable-text text-lg font-bold text-ink">
                     {item.title}
                   </h3>
-                  <span className="bg-stone/50 px-2 py-1 pixel-text text-sm text-emerald-glow">
+                  <span className="bg-white/10 px-3 py-1 rounded-md readable-text text-xs font-medium text-muted">
                     {item.period}
                   </span>
                 </div>
@@ -127,7 +127,7 @@ export default function ResumePage() {
                   {item.tech.map((tech) => (
                     <span
                       key={`${item.title}-${tech}`}
-                      className="bg-deepslate border border-stone px-2 py-1 pixel-text text-xs text-muted"
+                      className="bg-obsidian border border-white/10 rounded-md px-2 py-1 readable-text text-[11px] font-medium text-muted"
                     >
                       {tech}
                     </span>
@@ -137,7 +137,7 @@ export default function ResumePage() {
                 <ul className="mt-5 space-y-3 readable-text text-sm text-ink/80">
                   {item.highlights.map((line) => (
                     <li key={line} className="flex gap-3">
-                      <span className="text-diamond-glow mt-1">♦</span>
+                      <span className="text-diamond-glow/50 mt-1">•</span>
                       <span>{line}</span>
                     </li>
                   ))}

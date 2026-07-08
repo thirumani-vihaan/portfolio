@@ -25,25 +25,25 @@ export default function HomePage() {
         initial="hidden"
         animate="show"
         variants={stagger}
-        className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] max-w-5xl mx-auto"
+        className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] max-w-6xl mx-auto"
       >
         {/* ── Main Bio Block ───────────────────── */}
         <div className="relative">
-          <motion.div variants={fadeUp} className="mb-2">
-            <span className="pixel-text text-xl text-diamond-glow bg-diamond-base/10 px-3 py-1 rounded-sm">
-              Level 2 IT Undergrad
+          <motion.div variants={fadeUp} className="mb-3">
+            <span className="readable-text text-xs uppercase tracking-widest text-diamond-glow font-medium bg-diamond-glow/10 px-3 py-1 rounded-full border border-diamond-glow/20">
+              Information Technology Undergraduate
             </span>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="mt-6 font-display text-5xl font-bold uppercase tracking-wide text-ink sm:text-6xl md:text-7xl pixel-text drop-shadow-[0_4px_0_rgba(0,0,0,0.5)]"
+            className="mt-6 font-display text-5xl font-bold uppercase tracking-wide text-ink sm:text-6xl md:text-7xl pixel-text"
           >
             {portfolioData.name}
           </motion.h1>
 
-          <motion.div variants={fadeUp} className="mt-8 mc-block p-6">
-            <p className="readable-text text-lg leading-relaxed text-ink/90">
+          <motion.div variants={fadeUp} className="mt-8 obsidian-glass p-8">
+            <p className="readable-text text-xl leading-relaxed text-ink/90 font-medium">
               {portfolioData.tagline}
             </p>
             <p className="mt-4 readable-text text-base leading-relaxed text-muted">
@@ -53,16 +53,16 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/projects"
-                className="group flex items-center gap-2 bg-diamond-base hover:bg-diamond-glow text-obsidian px-6 py-3 pixel-text text-xl shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.2),inset_4px_4px_0_rgba(255,255,255,0.4)] transition-all active:scale-95"
+                className="group flex items-center gap-2 bg-white/10 hover:bg-diamond-glow/20 border border-white/10 hover:border-diamond-glow/50 text-ink px-6 py-3 rounded-xl readable-text text-sm font-medium transition-all"
               >
-                View Quests
-                <ArrowRight size={20} className="transition-transform group-hover:translate-x-1" />
+                View Projects
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="/resume"
-                className="flex items-center gap-2 bg-stone hover:bg-muted text-ink px-6 py-3 pixel-text text-xl shadow-[inset_-4px_-4px_0_rgba(0,0,0,0.2),inset_4px_4px_0_rgba(255,255,255,0.2)] transition-all active:scale-95"
+                className="flex items-center gap-2 bg-transparent hover:bg-white/5 border border-white/10 text-ink px-6 py-3 rounded-xl readable-text text-sm font-medium transition-all"
               >
-                Check Stats
+                View Resume
               </Link>
             </div>
           </motion.div>
@@ -70,19 +70,21 @@ export default function HomePage() {
 
         {/* ── Side Blocks ──────────────────────── */}
         <motion.aside variants={fadeUp} className="space-y-6">
-          <div className="mc-block p-6">
-            <h2 className="pixel-text text-2xl text-emerald-glow mb-4 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
-              Player Stats
+          <div className="obsidian-glass p-6">
+            <h2 className="readable-text text-sm font-medium uppercase tracking-widest text-emerald-glow mb-5">
+              Key Metrics
             </h2>
             <div className="space-y-4">
               {portfolioData.stats.map((stat, i) => {
                 const Icon = statIcons[i] || Code2;
                 return (
-                  <div key={i} className="flex items-center gap-4 bg-obsidian p-3 border-2 border-stone">
-                    <Icon size={24} className="text-emerald-glow" />
+                  <div key={i} className="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/5">
+                    <div className="p-2 bg-emerald-glow/10 rounded-lg">
+                      <Icon size={20} className="text-emerald-glow" />
+                    </div>
                     <div>
-                      <span className="block pixel-text text-2xl text-ink leading-none">{stat.value}</span>
-                      <span className="block readable-text text-sm text-muted mt-1">{stat.label}</span>
+                      <span className="block readable-text text-xl font-bold text-ink leading-none">{stat.value}</span>
+                      <span className="block readable-text text-xs text-muted mt-1">{stat.label}</span>
                     </div>
                   </div>
                 );
@@ -90,15 +92,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mc-block p-6">
-            <h2 className="pixel-text text-2xl text-diamond-glow mb-4 drop-shadow-[0_2px_0_rgba(0,0,0,0.5)]">
-              Achievements
+          <div className="obsidian-glass p-6">
+            <h2 className="readable-text text-sm font-medium uppercase tracking-widest text-diamond-glow mb-5">
+              Highlights
             </h2>
             <ul className="space-y-4">
               {portfolioData.achievements.map((ach) => (
-                <li key={ach.title} className="bg-obsidian p-3 border-2 border-stone">
-                  <h3 className="pixel-text text-xl text-ink">{ach.title}</h3>
-                  <p className="readable-text text-sm text-muted mt-2">{ach.detail}</p>
+                <li key={ach.title} className="bg-white/5 p-4 rounded-xl border border-white/5">
+                  <h3 className="readable-text text-sm font-bold text-ink">{ach.title}</h3>
+                  <p className="readable-text text-xs text-muted mt-2 leading-relaxed">{ach.detail}</p>
                 </li>
               ))}
             </ul>
